@@ -10,16 +10,21 @@ PlayState::PlayState(App &app) : TheMap(app)
 {
 	app.sound().playMusic("test");
 
-	auto &player = TheMap.addEntity<Player>(TheMap, app);
-	player.setPosition({ 0.0f, 0.0f });
+	auto &player1 = TheMap.addEntity<Player>(TheMap, app);
+	player1.setPosition({ 0.0f, 0.0f });
 
-	TheMap.player1().setPlayer(player, PlayerController::InputMode::Player1);
-	TheMap.camera().follow({ &player });
-	
-	auto &expl = TheMap.addEntity<Explosion>(TheMap, app);
-	expl.setPosition({ 2.0f, 2.0f });
+    auto &player2 = TheMap.addEntity<Player>(TheMap, app);
+    player2.setPosition({ 2.0f, 0.0f });
 
-	TheMap.generate(app);
+    TheMap.camera().follow({ &player1, &player2 });
+
+    TheMap.player1().setPlayer(player1, PlayerController::InputMode::Player1);
+    TheMap.player2().setPlayer(player2, PlayerController::InputMode::Player2);
+
+    TheMap.hud1().setPlayer(player1);
+    TheMap.hud2().setPlayer(player2);
+
+    TheMap.generate();
 }
 
 void PlayState::tick(float seconds)

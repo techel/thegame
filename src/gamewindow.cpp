@@ -27,9 +27,12 @@ Ticket GameWindow::observeEvents(sf::Event::EventType type, EventListener listen
 
 	auto it = std::prev(typelist.end());
 
-	return Ticket([it, &typelist]()
+	return Ticket([this, it, &typelist]()
 	{
-		typelist.erase(it);
+        Deferred.enqueue([it, &typelist]()
+        {
+            typelist.erase(it);
+        });
 	});
 }
 
@@ -53,6 +56,8 @@ bool GameWindow::tick()
 				l(event);
 		}
 	}
+
+    Deferred.dispatchAll();
 
     Window.clear();
 

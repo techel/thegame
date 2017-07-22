@@ -1,15 +1,15 @@
-#include "explosion.hpp"
+#include "plop.hpp"
 
 #include "app.hpp"
 #include "texmanager.hpp"
 #include "map.hpp"
 
-static constexpr float ExplosionSize = 15.0f;
+static constexpr float PlopSize = 8.0f;
 
-Explosion::Explosion(Map &map, App &app)
+Plop::Plop(Map &map, App &app)
 {
-    Shape.setTexture(&app.textures().get("explosion"));
-    Shape.setSize({ ExplosionSize, ExplosionSize });
+    Shape.setTexture(&app.textures().get("plop"));
+    Shape.setSize({ PlopSize, PlopSize });
 
     Anim.setTexture(*Shape.getTexture(), 8, 15.0f);
 
@@ -22,26 +22,24 @@ Explosion::Explosion(Map &map, App &app)
     });
 
     Anim.play();
-
-    map.shaker().shake(1.0f, { 0.0f, 1.0f });
 }
 
-sf::Vector2f Explosion::getPosition() const
+sf::Vector2f Plop::getPosition() const
 {
     return Shape.getPosition();
 }
 
-void Explosion::setPosition(const sf::Vector2f &pos)
+void Plop::setPosition(const sf::Vector2f &pos)
 {
     Shape.setPosition(pos);
 }
 
-void Explosion::tick(float seconds)
+void Plop::tick(float seconds)
 {
     Anim.tick(seconds);
 }
 
-void Explosion::render(sf::RenderTarget &target) const
+void Plop::render(sf::RenderTarget &target) const
 {
     target.draw(Shape);
 }

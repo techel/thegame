@@ -18,6 +18,8 @@ public:
 	//plays <name>.ogg from data folder
 	void playMusic(const std::string &name);
 
+    void stopMusic();
+
 	//loads <name>.ogg if not already in cache and plays it
 	void playSound(const std::string &name);
 

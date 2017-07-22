@@ -75,6 +75,12 @@
     <IncludePath>$(SolutionDir)libs\cppstd;$(SolutionDir)libs\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <LibraryPath>$(SolutionDir)libs\bin;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)bin\</OutDir>
+    <IntDir>$(SolutionDir)intermediate\release\</IntDir>
+    <IncludePath>$(SolutionDir)libs\cppstd;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>$(SolutionDir)libs\bin;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -100,10 +106,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>box2d\x86.msvc140.s.r.lib;sfml\window.x86.msvc140.s.r.lib;sfml\main.x86.msvc140.s.r.lib;sfml\system.x86.msvc140.s.r.lib;sfml\graphics.x86.msvc140.s.r.lib;sfml\audio.x86.msvc140.s.r.lib;flac\x86.lib;freetype\x86.lib;libogg\x86.lib;libjpeg\x86.lib;openal\x86.lib;opengl32.lib;vorbis\vorbis.x86.lib;vorbis\vorbisenc.x86.lib;vorbis\vorbisfile.x86.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -122,10 +130,12 @@
   <ItemGroup>
     <ClCompile Include="src\animation.cpp" />
     <ClCompile Include="src\app.cpp" />
+    <ClCompile Include="src\background.cpp" />
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\entity.cpp" />
     <ClCompile Include="src\explosion.cpp" />
     <ClCompile Include="src\gamewindow.cpp" />
+    <ClCompile Include="src\hud.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\map.cpp" />
     <ClCompile Include="src\mine.cpp" />
@@ -135,17 +145,22 @@
     <ClCompile Include="src\player.cpp" />
     <ClCompile Include="src\playercontroller.cpp" />
     <ClCompile Include="src\playstate.cpp" />
+    <ClCompile Include="src\plop.cpp" />
+    <ClCompile Include="src\screenshake.cpp" />
     <ClCompile Include="src\soundmanager.cpp" />
     <ClCompile Include="src\states.cpp" />
     <ClCompile Include="src\texmanager.cpp" />
+    <ClCompile Include="src\winstate.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\animation.hpp" />
     <ClInclude Include="src\app.hpp" />
+    <ClInclude Include="src\background.hpp" />
     <ClInclude Include="src\camera.hpp" />
     <ClInclude Include="src\entity.hpp" />
     <ClInclude Include="src\explosion.hpp" />
     <ClInclude Include="src\gamewindow.hpp" />
+    <ClInclude Include="src\hud.hpp" />
     <ClInclude Include="src\map.hpp" />
     <ClInclude Include="src\mine.hpp" />
     <ClInclude Include="src\nonmovable.hpp" />
@@ -155,6 +170,8 @@
     <ClInclude Include="src\player.hpp" />
     <ClInclude Include="src\playercontroller.hpp" />
     <ClInclude Include="src\playstate.hpp" />
+    <ClInclude Include="src\plop.hpp" />
+    <ClInclude Include="src\screenshake.hpp" />
     <ClInclude Include="src\soundmanager.hpp" />
     <ClInclude Include="src\states.hpp" />
     <ClInclude Include="src\taskqueue.hpp" />
@@ -162,6 +179,7 @@
     <ClInclude Include="src\ticker.hpp" />
     <ClInclude Include="src\ticket.hpp" />
     <ClInclude Include="src\viewguard.hpp" />
+    <ClInclude Include="src\winstate.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

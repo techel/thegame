@@ -31,10 +31,17 @@ void Camera::tick(float seconds)
 	if(!Targets.empty())
 	{
         sf::Vector2f sum; //compute average position
-        for(const auto &e : Targets)
-            sum += e->getPosition();
+        sf::Vector2f heighest = Targets[0]->getPosition();
 
-        auto target = sum / static_cast<float>(Targets.size());
+        for(const auto &e : Targets)
+        {
+            auto pos = e->getPosition();
+            sum += pos;
+            if(pos.y < heighest.y)
+                heighest = pos;
+        }
+
+        auto target = (sum + sum + heighest) / static_cast<float>(Targets.size() * 2 + 1);
 
 		auto viewpos = View.getCenter();
 		View.setCenter(viewpos + (target - viewpos) * Velocity * seconds);

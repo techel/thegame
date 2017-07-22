@@ -9,6 +9,11 @@ void SoundManager::playMusic(const std::string &name)
 	Music.play();
 }
 
+void SoundManager::stopMusic()
+{
+    Music.stop();
+}
+
 void SoundManager::playSound(const std::string & name)
 {
 	auto it = SfxCache.find(name);
