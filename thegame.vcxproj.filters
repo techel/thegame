@@ -79,6 +79,15 @@
     <ClCompile Include="src\mine.cpp">
       <Filter>src\map\entities</Filter>
     </ClCompile>
+    <ClCompile Include="src\background.cpp">
+      <Filter>src\map</Filter>
+    </ClCompile>
+    <ClCompile Include="src\screenshake.cpp">
+      <Filter>src\map</Filter>
+    </ClCompile>
+    <ClCompile Include="src\winstate.cpp">
+      <Filter>src\states</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\app.hpp">
@@ -146,6 +155,15 @@
     </ClInclude>
     <ClInclude Include="src\mine.hpp">
       <Filter>src\map\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\background.hpp">
+      <Filter>src\map</Filter>
+    </ClInclude>
+    <ClInclude Include="src\screenshake.hpp">
+      <Filter>src\map</Filter>
+    </ClInclude>
+    <ClInclude Include="src\winstate.hpp">
+      <Filter>src\states</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

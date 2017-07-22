@@ -22,6 +22,8 @@ Explosion::Explosion(Map &map, App &app)
     });
 
     Anim.play();
+
+    map.shaker().shake(1.0f, { 0.0f, 1.0f });
 }
 
 sf::Vector2f Explosion::getPosition() const

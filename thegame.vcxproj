@@ -122,6 +122,7 @@
   <ItemGroup>
     <ClCompile Include="src\animation.cpp" />
     <ClCompile Include="src\app.cpp" />
+    <ClCompile Include="src\background.cpp" />
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\entity.cpp" />
     <ClCompile Include="src\explosion.cpp" />
@@ -135,13 +136,16 @@
     <ClCompile Include="src\player.cpp" />
     <ClCompile Include="src\playercontroller.cpp" />
     <ClCompile Include="src\playstate.cpp" />
+    <ClCompile Include="src\screenshake.cpp" />
     <ClCompile Include="src\soundmanager.cpp" />
     <ClCompile Include="src\states.cpp" />
     <ClCompile Include="src\texmanager.cpp" />
+    <ClCompile Include="src\winstate.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\animation.hpp" />
     <ClInclude Include="src\app.hpp" />
+    <ClInclude Include="src\background.hpp" />
     <ClInclude Include="src\camera.hpp" />
     <ClInclude Include="src\entity.hpp" />
     <ClInclude Include="src\explosion.hpp" />
@@ -155,6 +159,7 @@
     <ClInclude Include="src\player.hpp" />
     <ClInclude Include="src\playercontroller.hpp" />
     <ClInclude Include="src\playstate.hpp" />
+    <ClInclude Include="src\screenshake.hpp" />
     <ClInclude Include="src\soundmanager.hpp" />
     <ClInclude Include="src\states.hpp" />
     <ClInclude Include="src\taskqueue.hpp" />
@@ -162,6 +167,7 @@
     <ClInclude Include="src\ticker.hpp" />
     <ClInclude Include="src\ticket.hpp" />
     <ClInclude Include="src\viewguard.hpp" />
+    <ClInclude Include="src\winstate.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

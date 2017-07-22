@@ -31,13 +31,16 @@ class Player : public IEntity
 		void render(sf::RenderTarget &target) const override;
 
 private:
+    Map *MyMap;
+    App *MyApp;
+
 	sf::RectangleShape Sprite;
     
     std::unique_ptr<Box> Body;
 
     Face FaceDirection = Face::Right;
 
-		bool Walking = false;
-		float DestWalkVelocity = 0.0f;
-		float WalkAnimation = 0.0f;
+	bool Walking = false;
+	float DestWalkVelocity = 0.0f;
+	float WalkAnimation = 0.0f;
 };

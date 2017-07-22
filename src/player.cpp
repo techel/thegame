@@ -1,5 +1,7 @@
 #include "player.hpp"
 
+#include <cmath>
+
 #include "app.hpp"
 #include "map.hpp"
 #include "texmanager.hpp"
@@ -7,10 +9,11 @@
 
 static const float PlayerSize = 3.5f;
 static const float SensorsSize = 0.7f;
-static constexpr float JumpVelocity0 = -70.5;
+static constexpr float JumpVelocity0 = -90.5;
 static constexpr float MaxWalkVelocity = 37.0f;
 static constexpr float AccelGround = 100.0f;
-static constexpr float AccelAir = 26.0f;
+static constexpr float AccelAir = 17.0f;
+static constexpr float DeaccelAir = 1.0f;
 static constexpr float Pi = 3.141592f;
 
 Player::Player(Map &map, App &app) : MyMap(&map), MyApp(&app)
@@ -54,13 +57,10 @@ void Player::tick(float seconds)
     bool wallRight = Body->getNumTouches(Box::Direction::Right) > 0;
     bool ground = Body->getNumTouches(Box::Direction::Bottom) > 0;
 
-    if((DestWalkVelocity < 0.0f && !wallLeft) || (DestWalkVelocity > 0.0f && !wallRight))
+    if((DestWalkVelocity < 0.0f && !wallLeft) || (DestWalkVelocity > 0.0f && !wallRight) || DestWalkVelocity == 0.0f)
     {
         auto currvel = Body->body().GetLinearVelocity();
-        auto newvelx = currvel.x + (DestWalkVelocity - currvel.x) * (ground ? AccelGround : AccelAir) * seconds;
-
-        if(std::abs(newvelx) > std::abs(DestWalkVelocity))
-            newvelx = DestWalkVelocity;
+        auto newvelx = currvel.x + (DestWalkVelocity - currvel.x) * (ground ? AccelGround : (DestWalkVelocity == 0.0f ? DeaccelAir : AccelAir)) * seconds;
 
         Body->body().SetLinearVelocity({ newvelx, currvel.y });
     }

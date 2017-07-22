@@ -6,10 +6,12 @@
 
 #include "viewguard.hpp"
 
-Map::Map(App &app) : Player1Controller(app.window()), Player2Controller(app.window())
+Map::Map(App &app) : Player1Controller(app.window()), Player2Controller(app.window()), TheBackground(app)
 {
 	TheCamera.setResolution({ 100.0f, 100.0f * 9.0f / 16.0f });
     TheCamera.setVelocity(5.0f);
+
+    Shaker.setParameters(7.0f, 3.0f, 1.0f);
 }
 
 IEntity &Map::addEntity(std::unique_ptr<IEntity> entity)
@@ -49,14 +51,22 @@ void Map::tick(float seconds)
 
 	TheCamera.tick(seconds);
     ThePhysics.tick(seconds);
+    Shaker.tick(seconds);
 }
 
 void Map::render(sf::RenderTarget &target) const
 {
-	auto view = TheCamera.getView(); //preserve viewport
-	view.setViewport(target.getView().getViewport());
-	target.setView(view);
+    {
+        TheBackground.render(target);
+    }
+    {
+        auto view = TheCamera.getView();
+        view.move(Shaker.getOffset());
+        view.setViewport(target.getView().getViewport());
 
-	for(const auto &e : Entities)
-		e->render(target);
+        target.setView(view);
+
+        for(const auto &e : Entities)
+            e->render(target);
+    }
 }
