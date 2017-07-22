@@ -36,6 +36,7 @@ class Map : nonMovable, nonCopyable
 
 		void tick(float seconds);
 		void render(sf::RenderTarget &target) const;
+		void generate(App &app);
 
 	private:
 		TaskQueue Deferred;
