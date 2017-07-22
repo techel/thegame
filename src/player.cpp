@@ -138,7 +138,7 @@ void Player::action()
 		else
 			mine.toss({ 1.0f, -1.0f });
 
-		MineCooldown = 2.0f;
+		MineCooldown = 1.0f;
 
 		MyApp->sound().playSound("toss");
 	}

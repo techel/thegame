@@ -81,11 +81,11 @@ void Map::tick(float seconds)
     Player1Hud.tick(seconds);
     Player2Hud.tick(seconds);
 
-    auto camview = TheCamera.getView();
-    auto viewsize = camview.getSize();
-
     if(MaxHeight == 0.0f)
         computeVerticalSpan();
+
+    auto camview = TheCamera.getView();
+    auto viewsize = camview.getSize();
 
     TheBackground.setScroll(-(camview.getCenter().y - viewsize.y / 2.0f) / MaxHeight);
 
@@ -182,9 +182,9 @@ void Map::generate()
     float floor_width = 20.0f;
     float floor_position_y = 20.0f;
 
-    int platform_count = 30;
+    int platform_count = 40;
     float plat_width = 20.0f;
-    int height = 20;
+    int height = 37;
     float padding = 6.0f;
 
     constexpr size_t preset_count = 5;
@@ -218,7 +218,7 @@ void Map::generate()
         for(int j = 0; j < preset_count; j++)
         {
             // Empy in preset -> continue
-            if(preset[index][j] < 1) {j++; continue;}
+            if(preset[index][j] < 1) {continue;}
 
             auto &plat = this->addEntity<Platform>(*this, *MyApp, plat_width);
             plat.setPosition({ j * -(plat_width + padding) -(i%2 * 10.0f), i * -8.0f + floor_position_y});

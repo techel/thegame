@@ -36,37 +36,20 @@ class Player : public IEntity
 		void tick(float seconds) override;
 		void render(sf::RenderTarget &target) const override;
 
-<<<<<<< HEAD
 	private:
 		sf::RectangleShape Sprite;
-=======
-private:
-    Map *MyMap;
-    App *MyApp;
+        Map *MyMap;
+        App *MyApp;
 
-	sf::RectangleShape Sprite;
-    
-    std::unique_ptr<Box> Body;
->>>>>>> 0f2ef7b94d38ea981e1dd0c66f5c978f60618680
+	    std::unique_ptr<Box> Body;
 
-		std::unique_ptr<Box> Body;
+	    Face FaceDirection = Face::Right;
 
-		Face FaceDirection = Face::Right;
+	    bool Walking = false;
+	    float DestWalkVelocity = 0.0f;
+	    float WalkAnimation = 0.0f;
 
-<<<<<<< HEAD
-		bool Walking = false;
-		float DestWalkVelocity = 0.0f;
-		float WalkAnimation = 0.0f;
+        float MineCooldown = 0.0f;
 
-		Map *MyMap;
-		App *MyApp;
-=======
-	bool Walking = false;
-	float DestWalkVelocity = 0.0f;
-	float WalkAnimation = 0.0f;
-
-    float MineCooldown = 0.0f;
-
-    unsigned int Lives = getMaxLives();
->>>>>>> 0f2ef7b94d38ea981e1dd0c66f5c978f60618680
+        unsigned int Lives = getMaxLives();
 };
