@@ -73,14 +73,14 @@ void Map::generate(App &app)
 	int platform_count = 30;
 	float plat_width = 20.0f;
 	int height = 20;
-	float padding = 6.0f;
+	float padding = 8.0f;
 
 	int preset_count = 5;
 	int preset[][preset_count] = {
 		{0,1,1,0,1},
-		{0,1,1,1,0},
-		{1,1,0,0,1},
 		{1,1,0,1,0},
+		{0,1,0,1,1},
+		{0,1,1,1,0},
 		{1,0,1,1,0}
 	};
 
@@ -102,14 +102,17 @@ void Map::generate(App &app)
 	for(int i = 0; i < height; i++)
 	{	
 		int index = rndP();
-		platform_count = rndF();
+		//platform_count = rndF();
 		for(int j = 0; j < preset_count; j++)
 		{
-			// Empy in preset -> continue
-			if(preset[index][j] < 1) {j++; continue;}
+			// Empty in preset -> continue
+			if(preset[index][j] < 1) 
+			{
+				continue;
+			}
 
 			auto &plat = this->addEntity<Platform>(*this, app, plat_width);
-			plat.setPosition({ j * -(plat_width + padding) -(i%2 * 10.0f), i * -8.0f + floor_position_y});
+			plat.setPosition({ j * -(plat_width + padding) -((i % 2) * -(padding)), (i * -8.0f) + floor_position_y});
 		}
 	}
 }
