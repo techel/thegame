@@ -61,6 +61,15 @@
     <ClCompile Include="src\physbox.cpp">
       <Filter>src\map\physics</Filter>
     </ClCompile>
+    <ClCompile Include="src\entity.cpp">
+      <Filter>src\map</Filter>
+    </ClCompile>
+    <ClCompile Include="src\playercontroller.cpp">
+      <Filter>src\map</Filter>
+    </ClCompile>
+    <ClCompile Include="src\platform.cpp">
+      <Filter>src\map\entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\app.hpp">
@@ -113,6 +122,12 @@
     </ClInclude>
     <ClInclude Include="src\physbox.hpp">
       <Filter>src\map\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\playercontroller.hpp">
+      <Filter>src\map</Filter>
+    </ClInclude>
+    <ClInclude Include="src\platform.hpp">
+      <Filter>src\map\entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

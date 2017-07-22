@@ -65,7 +65,7 @@ private:
 
         void dispatch() override
         {
-            std::invoke(Func);
+            Func();
         }
     };
 
