@@ -21,6 +21,9 @@ PlayState::PlayState(App &app) : TheMap(app)
     TheMap.player1().setPlayer(player1, PlayerController::InputMode::Player1);
     TheMap.player2().setPlayer(player2, PlayerController::InputMode::Player2);
 
+    TheMap.hud1().setPlayer(player1);
+    TheMap.hud2().setPlayer(player2);
+
     TheMap.generate();
 }
 

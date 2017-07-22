@@ -5,7 +5,7 @@
 #include "map.hpp"
 #include "explosion.hpp"
 
-static constexpr float PlatformHeight = 2.0f;
+static constexpr float PlatformHeight = 1.3f;
 
 Platform::Platform(Map &map, App &app, float width) : MyMap(&map), MyApp(&app)
 {

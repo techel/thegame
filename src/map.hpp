@@ -13,6 +13,7 @@
 #include "playercontroller.hpp"
 #include "background.hpp"
 #include "screenshake.hpp"
+#include "hud.hpp"
 
 class Map : nonMovable, nonCopyable
 {
@@ -36,6 +37,9 @@ public:
 	PlayerController &player1() { return Player1Controller; }
 	PlayerController &player2() { return Player2Controller; }
 
+    Hud &hud1() { return Player1Hud; }
+    Hud &hud2() { return Player2Hud; }
+
     ScreenShaker &shaker() { return Shaker; }
 
 	void tick(float seconds);
@@ -53,7 +57,12 @@ private:
 	std::vector<std::unique_ptr<IEntity>> Entities;
 
 	PlayerController Player1Controller, Player2Controller;
+    Hud Player1Hud, Player2Hud;
 
     ScreenShaker Shaker;
     Background TheBackground;
+
+    void computeVerticalSpan();
+    float MaxHeight = 0.0f;
+    float MaxVertical = 0.0f;
 };

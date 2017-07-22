@@ -52,6 +52,14 @@ void Player::setPosition(const sf::Vector2f &pos)
 	Body->body().SetTransform({ pos.x, pos.y }, 0.0f);
 }
 
+void Player::takeDamage(unsigned int lives)
+{
+    if(lives > Lives)
+        Lives = 0;
+    else
+        Lives -= lives;
+}
+
 void Player::tick(float seconds)
 {
     bool wallLeft = Body->getNumTouches(Box::Direction::Left) > 0;
@@ -134,4 +142,9 @@ void Player::action()
 
         MyApp->sound().playSound("toss");
     }
+}
+
+sf::Vector2f Player::getSize() const
+{
+    return { PlayerSize, PlayerSize };
 }

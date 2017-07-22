@@ -75,6 +75,12 @@
     <IncludePath>$(SolutionDir)libs\cppstd;$(SolutionDir)libs\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <LibraryPath>$(SolutionDir)libs\bin;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)bin\</OutDir>
+    <IntDir>$(SolutionDir)intermediate\release\</IntDir>
+    <IncludePath>$(SolutionDir)libs\cppstd;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>$(SolutionDir)libs\bin;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -100,10 +106,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>box2d\x86.msvc140.s.r.lib;sfml\window.x86.msvc140.s.r.lib;sfml\main.x86.msvc140.s.r.lib;sfml\system.x86.msvc140.s.r.lib;sfml\graphics.x86.msvc140.s.r.lib;sfml\audio.x86.msvc140.s.r.lib;flac\x86.lib;freetype\x86.lib;libogg\x86.lib;libjpeg\x86.lib;openal\x86.lib;opengl32.lib;vorbis\vorbis.x86.lib;vorbis\vorbisenc.x86.lib;vorbis\vorbisfile.x86.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -127,6 +135,7 @@
     <ClCompile Include="src\entity.cpp" />
     <ClCompile Include="src\explosion.cpp" />
     <ClCompile Include="src\gamewindow.cpp" />
+    <ClCompile Include="src\hud.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\map.cpp" />
     <ClCompile Include="src\mine.cpp" />
@@ -151,6 +160,7 @@
     <ClInclude Include="src\entity.hpp" />
     <ClInclude Include="src\explosion.hpp" />
     <ClInclude Include="src\gamewindow.hpp" />
+    <ClInclude Include="src\hud.hpp" />
     <ClInclude Include="src\map.hpp" />
     <ClInclude Include="src\mine.hpp" />
     <ClInclude Include="src\nonmovable.hpp" />

@@ -47,6 +47,26 @@ void Map::removeEntity(IEntity &e)
 	});
 }
 
+void Map::computeVerticalSpan()
+{
+    float min = 0.0f, max = 0.0f;
+    for(const auto &e : Entities)
+    {
+        if(e->cast<Platform>())
+        {
+            auto pos = e->getPosition();
+            if(pos.y > min)
+                min = pos.y;
+
+            if(pos.y < max)
+                max = pos.y;
+        }
+    }
+    
+    MaxHeight = std::abs(max - min);
+    MaxVertical = max - 5.0f;
+}
+
 void Map::tick(float seconds)
 {
     for(auto &e : Entities)
@@ -58,8 +78,17 @@ void Map::tick(float seconds)
     ThePhysics.tick(seconds);
     Shaker.tick(seconds);
 
+    Player1Hud.tick(seconds);
+    Player2Hud.tick(seconds);
+
     auto camview = TheCamera.getView();
     auto viewsize = camview.getSize();
+
+    if(MaxHeight == 0.0f)
+        computeVerticalSpan();
+
+    TheBackground.setScroll(-(camview.getCenter().y - viewsize.y / 2.0f) / MaxHeight);
+
     auto bottom = camview.getCenter().y + viewsize.y / 2.0f;
 
     Player *p1 = player1().getPlayer();
@@ -70,12 +99,30 @@ void Map::tick(float seconds)
         auto pos1 = p1->getPosition();
         auto pos2 = p2->getPosition();
 
-        if(pos1.y > viewsize.y / 2 && pos2.y > viewsize.y / 2)
+        auto gameover = [&]()
         {
             MyApp->states().setNextState<WinState>(*MyApp);
+        };
+
+        if(pos1.x < MaxVertical || pos2.x < MaxVertical)
+            gameover();
+
+        if(pos1.y > viewsize.y / 2 && pos2.y > viewsize.y / 2)
+        {
+            gameover();
         }
         else
         {
+            auto decreaseLives = [&](Player &p)
+            {
+                p.takeDamage(1);
+                if(p.getLives() == 0)
+                {
+                    gameover();
+                    return false;
+                }
+                return true;
+            };
             auto addplop = [&](const sf::Vector2f &pos)
             {
                 auto &plop = addEntity<Plop>(*this, *MyApp);
@@ -83,15 +130,27 @@ void Map::tick(float seconds)
                 MyApp->sound().playSound("warp");
             };
 
-            if(pos1.y > bottom)
+            bool warp1 = pos1.y > bottom;
+            bool warp2 = pos2.y > bottom;
+
+            if(!(warp1 && warp2))
             {
-                p1->setPosition(pos2);
-                addplop(pos2);
-            }
-            if(pos2.y > bottom)
-            {
-                p2->setPosition(pos1);
-                addplop(pos1);
+                if(warp1)
+                {
+                    if(decreaseLives(*p1))
+                    {
+                        p1->setPosition(pos2);
+                        addplop(pos2);
+                    }
+                }
+                if(warp2)
+                {
+                    if(decreaseLives(*p2))
+                    {
+                        p2->setPosition(pos1);
+                        addplop(pos1);
+                    }
+                }
             }
         }
     }
@@ -111,6 +170,9 @@ void Map::render(sf::RenderTarget &target) const
 
         for(const auto &e : Entities)
             e->render(target);
+
+        Player1Hud.render(target);
+        Player2Hud.render(target);
     }
 }
 

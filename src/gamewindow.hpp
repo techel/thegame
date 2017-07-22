@@ -9,6 +9,7 @@
 #include <sfml/System/Vector2.hpp>
 
 #include "nonmovable.hpp"
+#include "taskqueue.hpp"
 #include "ticket.hpp"
 
 class GameWindow : nonMovable, nonCopyable
@@ -35,5 +36,7 @@ private:
 	std::map<sf::Event::EventType, std::list<EventListener>> EventListeners;
 
 	sf::FloatRect Viewport;
-	void renewViewport();
+    void renewViewport();
+
+    TaskQueue Deferred;
 };

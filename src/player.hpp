@@ -27,6 +27,12 @@ class Player : public IEntity
 		void jump();
 		void action();
 
+        sf::Vector2f getSize() const;
+
+        unsigned int getLives() const { return Lives; }
+        constexpr static unsigned int getMaxLives() { return 3; }
+        void takeDamage(unsigned int lives);
+
 		void tick(float seconds) override;
 		void render(sf::RenderTarget &target) const override;
 
@@ -45,4 +51,6 @@ private:
 	float WalkAnimation = 0.0f;
 
     float MineCooldown = 0.0f;
+
+    unsigned int Lives = getMaxLives();
 };

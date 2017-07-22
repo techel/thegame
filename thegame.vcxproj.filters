@@ -91,6 +91,9 @@
     <ClCompile Include="src\plop.cpp">
       <Filter>src\map\entities</Filter>
     </ClCompile>
+    <ClCompile Include="src\hud.cpp">
+      <Filter>src\map</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\app.hpp">
@@ -170,6 +173,9 @@
     </ClInclude>
     <ClInclude Include="src\plop.hpp">
       <Filter>src\map\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hud.hpp">
+      <Filter>src\map</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
