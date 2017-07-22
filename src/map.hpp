@@ -40,8 +40,12 @@ public:
 private:
 	TaskQueue Deferred;
 	Camera TheCamera;
+<<<<<<< HEAD
+};
+=======
     Physics ThePhysics;
 	std::vector<std::unique_ptr<IEntity>> Entities;
 
     PlayerController Player1Controller, Player2Controller;
 };
+>>>>>>> 827adf7d3f0db6669cd55dc763f787dfc53acaa7
