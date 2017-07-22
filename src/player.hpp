@@ -12,35 +12,32 @@ class App;
 
 class Player : public IEntity
 {
-public:
-	Player(Map &map, App &app);
+	public:
+		Player(Map &map, App &app);
 
-	sf::Vector2f getPosition() const override;
-	void setPosition(const sf::Vector2f &pos) override;
+		sf::Vector2f getPosition() const override;
+		void setPosition(const sf::Vector2f &pos) override;
 
-    enum class Face { Left, Right };
-    Face getFace() const { return FaceDirection; }
+		enum class Face { Left, Right };
+		Face getFace() const { return FaceDirection; }
 
-    enum class Walk { Left, Right, None };
-    void walk(Walk dir);
+		enum class Walk { Left, Right, None };
+		void walk(Walk dir);
 
-    void jump();
-    void action();
-    
-	void tick(float seconds) override;
-	void render(sf::RenderTarget &target) const override;
+		void jump();
+		void action();
+
+		void tick(float seconds) override;
+		void render(sf::RenderTarget &target) const override;
 
 private:
-    App *MyApp;
-    Map *MyMap;
-
 	sf::RectangleShape Sprite;
     
     std::unique_ptr<Box> Body;
 
     Face FaceDirection = Face::Right;
 
-    bool Walking = false;
-    float DestWalkVelocity = 0.0f;
-    float WalkAnimation = 0.0f;
+		bool Walking = false;
+		float DestWalkVelocity = 0.0f;
+		float WalkAnimation = 0.0f;
 };

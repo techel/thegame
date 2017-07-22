@@ -1,0 +1,108 @@
+In file included from ../src/playstate.hpp:4:0,
+                 from ../src/app.cpp:9:
+../src/map.hpp:43:1: error: version control conflict marker in file
+ <<<<<<< HEAD
+ ^~~~~~~
+../src/map.hpp:45:1: error: version control conflict marker in file
+ =======
+ ^~~~~~~
+../src/map.hpp:48:1: error: version control conflict marker in file
+ >>>>>>> 060de62c467c4101364ccc13cda52b542b6f2e54
+ ^~~~~~~
+../src/map.hpp: In member function ‘Physics& Map::physics()’:
+../src/map.hpp:32:30: error: ‘ThePhysics’ was not declared in this scope
+  Physics &physics() { return ThePhysics; }
+                              ^~~~~~~~~~
+In file included from ../src/explosion.cpp:5:0:
+../src/map.hpp:43:1: error: version control conflict marker in file
+ <<<<<<< HEAD
+ ^~~~~~~
+../src/map.hpp:45:1: error: version control conflict marker in file
+ =======
+ ^~~~~~~
+../src/map.hpp:48:1: error: version control conflict marker in file
+ >>>>>>> 060de62c467c4101364ccc13cda52b542b6f2e54
+ ^~~~~~~
+../src/map.hpp: In member function ‘Physics& Map::physics()’:
+../src/map.hpp:32:30: error: ‘ThePhysics’ was not declared in this scope
+  Physics &physics() { return ThePhysics; }
+                              ^~~~~~~~~~
+In file included from ../src/map.cpp:1:0:
+../src/map.hpp:43:1: error: version control conflict marker in file
+ <<<<<<< HEAD
+ ^~~~~~~
+../src/map.hpp:45:1: error: version control conflict marker in file
+ =======
+ ^~~~~~~
+../src/map.hpp:48:1: error: version control conflict marker in file
+ >>>>>>> 060de62c467c4101364ccc13cda52b542b6f2e54
+ ^~~~~~~
+../src/map.hpp: In member function ‘Physics& Map::physics()’:
+../src/map.hpp:32:30: error: ‘ThePhysics’ was not declared in this scope
+  Physics &physics() { return ThePhysics; }
+                              ^~~~~~~~~~
+../src/map.cpp: In member function ‘IEntity& Map::addEntity(std::unique_ptr<IEntity>)’:
+../src/map.cpp:20:2: error: ‘Entities’ was not declared in this scope
+  Entities.push_back(std::move(entity));
+  ^~~~~~~~
+../src/map.cpp: In lambda function:
+../src/map.cpp:28:29: error: ‘Entities’ was not declared in this scope
+      auto it = std::find_if(Entities.begin(), Entities.end(), [&e](const auto &entityptr)
+                             ^~~~~~~~
+../src/map.cpp: In member function ‘void Map::tick(float)’:
+../src/map.cpp:40:19: error: ‘Entities’ was not declared in this scope
+     for(auto &e : Entities)
+                   ^~~~~~~~
+../src/map.cpp:46:5: error: ‘ThePhysics’ was not declared in this scope
+     ThePhysics.tick(seconds);
+     ^~~~~~~~~~
+../src/map.cpp: In member function ‘void Map::render(sf::RenderTarget&) const’:
+../src/map.cpp:55:22: error: ‘Entities’ was not declared in this scope
+  for(const auto &e : Entities)
+                      ^~~~~~~~
+../src/physics.cpp:1:9: warning: #pragma once in main file
+ #pragma once
+         ^~~~
+In file included from ../src/platform.cpp:5:0:
+../src/map.hpp:43:1: error: version control conflict marker in file
+ <<<<<<< HEAD
+ ^~~~~~~
+../src/map.hpp:45:1: error: version control conflict marker in file
+ =======
+ ^~~~~~~
+../src/map.hpp:48:1: error: version control conflict marker in file
+ >>>>>>> 060de62c467c4101364ccc13cda52b542b6f2e54
+ ^~~~~~~
+../src/map.hpp: In member function ‘Physics& Map::physics()’:
+../src/map.hpp:32:30: error: ‘ThePhysics’ was not declared in this scope
+  Physics &physics() { return ThePhysics; }
+                              ^~~~~~~~~~
+In file included from ../src/player.cpp:4:0:
+../src/map.hpp:43:1: error: version control conflict marker in file
+ <<<<<<< HEAD
+ ^~~~~~~
+../src/map.hpp:45:1: error: version control conflict marker in file
+ =======
+ ^~~~~~~
+../src/map.hpp:48:1: error: version control conflict marker in file
+ >>>>>>> 060de62c467c4101364ccc13cda52b542b6f2e54
+ ^~~~~~~
+../src/map.hpp: In member function ‘Physics& Map::physics()’:
+../src/map.hpp:32:30: error: ‘ThePhysics’ was not declared in this scope
+  Physics &physics() { return ThePhysics; }
+                              ^~~~~~~~~~
+In file included from ../src/playstate.hpp:4:0,
+                 from ../src/playstate.cpp:1:
+../src/map.hpp:43:1: error: version control conflict marker in file
+ <<<<<<< HEAD
+ ^~~~~~~
+../src/map.hpp:45:1: error: version control conflict marker in file
+ =======
+ ^~~~~~~
+../src/map.hpp:48:1: error: version control conflict marker in file
+ >>>>>>> 060de62c467c4101364ccc13cda52b542b6f2e54
+ ^~~~~~~
+../src/map.hpp: In member function ‘Physics& Map::physics()’:
+../src/map.hpp:32:30: error: ‘ThePhysics’ was not declared in this scope
+  Physics &physics() { return ThePhysics; }
+                              ^~~~~~~~~~

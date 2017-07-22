@@ -1,7 +1,5 @@
 #include "player.hpp"
 
-#include <functional>
-
 #include "app.hpp"
 #include "map.hpp"
 #include "texmanager.hpp"

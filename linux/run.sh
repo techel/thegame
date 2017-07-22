@@ -1,5 +1,4 @@
 #!/bin/sh
 
-cd ./bin/
-
+cd ../bin/
 ./proc
