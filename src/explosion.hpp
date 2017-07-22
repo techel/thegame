@@ -1,28 +1,25 @@
 #pragma once
 
-#include <memory>
 #include <sfml/Graphics/RectangleShape.hpp>
 
 #include "entity.hpp"
-#include "physics.hpp"
+#include "animation.hpp"
 
 class Map;
 class App;
 
-class Platform : public IEntity
+class Explosion : public IEntity
 {
 public:
-    Platform(Map &map, App &app, float width);
+    Explosion(Map &map, App &app);
 
     sf::Vector2f getPosition() const override;
     void setPosition(const sf::Vector2f &pos) override;
 
-    void explode();
-
     void tick(float seconds) override;
-    void render(sf::RenderTarget &target) const override;
+    void render(sf::RenderTarget & target) const override;
 
 private:
-	sf::RectangleShape Sprite;
-    BodyHolder Body;
+    sf::RectangleShape Shape;
+    Animation Anim;
 };

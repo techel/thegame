@@ -120,9 +120,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\animation.cpp" />
     <ClCompile Include="src\app.cpp" />
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\entity.cpp" />
+    <ClCompile Include="src\explosion.cpp" />
     <ClCompile Include="src\gamewindow.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\map.cpp" />
@@ -137,9 +139,11 @@
     <ClCompile Include="src\texmanager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\animation.hpp" />
     <ClInclude Include="src\app.hpp" />
     <ClInclude Include="src\camera.hpp" />
     <ClInclude Include="src\entity.hpp" />
+    <ClInclude Include="src\explosion.hpp" />
     <ClInclude Include="src\gamewindow.hpp" />
     <ClInclude Include="src\map.hpp" />
     <ClInclude Include="src\nonmovable.hpp" />

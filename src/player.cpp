@@ -7,8 +7,8 @@
 static const float PlayerSize = 4.0f;
 static const float SensorsSize = 0.7f;
 static constexpr float JumpVelocity0 = -70.5;
-static constexpr float MaxWalkVelocity = 30.0f;
-static constexpr float AccelGround = 123.0f;
+static constexpr float MaxWalkVelocity = 37.0f;
+static constexpr float AccelGround = 100.0f;
 static constexpr float AccelAir = 26.0f;
 static constexpr float Pi = 3.141592f;
 

@@ -1,7 +1,7 @@
 #pragma once
 
-#include <functional>
 #include <sfml/Graphics.hpp>
+#include <functional>
 #include <sfml/Graphics/RectangleShape.hpp>
 
 #include "entity.hpp"
@@ -33,7 +33,6 @@ class Player : public IEntity
 	private:
 		sf::RectangleShape Sprite;
 		std::unique_ptr<Box> Body;
-
 		Face FaceDirection = Face::Right;
 
 		bool Walking = false;

@@ -5,7 +5,7 @@
 
 #include <sfml/Graphics.hpp>
 
-constexpr unsigned int WindowWidth = 800;
+constexpr unsigned int WindowWidth = 900;
 constexpr unsigned int WindowHeight = 600;
 
 GameWindow::GameWindow()
