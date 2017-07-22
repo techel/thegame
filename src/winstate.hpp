@@ -1,10 +1,12 @@
 #pragma once
 
-#include "states.hpp"
-
 #include <sfml/Graphics/RectangleShape.hpp>
 
+#include "states.hpp"
+#include "ticket.hpp"
+
 class App;
+class Map;
 
 class WinState : public IState
 {
@@ -17,4 +19,6 @@ public:
 private:
     sf::RectangleShape GameOverShape;
     sf::View View;
+
+    Ticket KeyEventTicket;
 };

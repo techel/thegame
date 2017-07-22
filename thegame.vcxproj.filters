@@ -88,6 +88,9 @@
     <ClCompile Include="src\winstate.cpp">
       <Filter>src\states</Filter>
     </ClCompile>
+    <ClCompile Include="src\plop.cpp">
+      <Filter>src\map\entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\app.hpp">
@@ -164,6 +167,9 @@
     </ClInclude>
     <ClInclude Include="src\winstate.hpp">
       <Filter>src\states</Filter>
+    </ClInclude>
+    <ClInclude Include="src\plop.hpp">
+      <Filter>src\map\entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -13,6 +13,7 @@ public:
     enum class InputMode { Player1, Player2 };
 
     void setPlayer(Player &p, InputMode mode);
+    Player *getPlayer() const { return TargetPlayer; }
 
 private:
     Ticket KeyDownEventTicket, KeyUpEventTicket;

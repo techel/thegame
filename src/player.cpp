@@ -6,6 +6,7 @@
 #include "map.hpp"
 #include "texmanager.hpp"
 #include "mine.hpp"
+#include "soundmanager.hpp"
 
 static const float PlayerSize = 3.5f;
 static const float SensorsSize = 0.7f;
@@ -73,6 +74,8 @@ void Player::tick(float seconds)
             WalkAnimation -= Pi;
     }
 
+    MineCooldown -= seconds;
+
     auto pos = Body->body().GetPosition();
     Sprite.setPosition({ pos.x, pos.y + std::sin(WalkAnimation) * 0.5f });
 }
@@ -109,16 +112,26 @@ void Player::walk(Walk dir)
 void Player::jump()
 {
     if(Body->getNumTouches(Box::Direction::Bottom) > 0)
+    {
         Body->body().ApplyLinearImpulse({ 0.0f, JumpVelocity0 * Body->body().GetMass() }, { PlayerSize / 2, PlayerSize / 2 }, true);
+        MyApp->sound().playSound("jump");
+    }
 }
 
 void Player::action()
 {
-    auto &mine = MyMap->addEntity<Mine>(*MyMap, *MyApp);
-    mine.setPosition(getPosition() + sf::Vector2f( PlayerSize / 2, 0.0f ));
+    if(MineCooldown <= 0.0f)
+    {
+        auto &mine = MyMap->addEntity<Mine>(*MyMap, *MyApp);
+        mine.setPosition(getPosition() + sf::Vector2f(PlayerSize / 2, 0.0f));
 
-    if(FaceDirection == Face::Left)
-        mine.toss({ -1.0f, -1.0f });
-    else
-        mine.toss({ 1.0f, -1.0f });
+        if(FaceDirection == Face::Left)
+            mine.toss({ -1.0f, -1.0f });
+        else
+            mine.toss({ 1.0f, -1.0f });
+
+        MineCooldown = 2.0f;
+
+        MyApp->sound().playSound("toss");
+    }
 }

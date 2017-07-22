@@ -136,6 +136,7 @@
     <ClCompile Include="src\player.cpp" />
     <ClCompile Include="src\playercontroller.cpp" />
     <ClCompile Include="src\playstate.cpp" />
+    <ClCompile Include="src\plop.cpp" />
     <ClCompile Include="src\screenshake.cpp" />
     <ClCompile Include="src\soundmanager.cpp" />
     <ClCompile Include="src\states.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="src\player.hpp" />
     <ClInclude Include="src\playercontroller.hpp" />
     <ClInclude Include="src\playstate.hpp" />
+    <ClInclude Include="src\plop.hpp" />
     <ClInclude Include="src\screenshake.hpp" />
     <ClInclude Include="src\soundmanager.hpp" />
     <ClInclude Include="src\states.hpp" />

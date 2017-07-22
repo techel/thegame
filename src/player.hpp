@@ -43,4 +43,6 @@ private:
 	bool Walking = false;
 	float DestWalkVelocity = 0.0f;
 	float WalkAnimation = 0.0f;
+
+    float MineCooldown = 0.0f;
 };

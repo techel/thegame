@@ -41,7 +41,11 @@ public:
 	void tick(float seconds);
 	void render(sf::RenderTarget &target) const;
 
+    void generate();
+
 private:
+    App *MyApp;
+
 	TaskQueue Deferred;
 	Camera TheCamera;
 	Physics ThePhysics;

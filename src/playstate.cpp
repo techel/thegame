@@ -21,11 +21,7 @@ PlayState::PlayState(App &app) : TheMap(app)
     TheMap.player1().setPlayer(player1, PlayerController::InputMode::Player1);
     TheMap.player2().setPlayer(player2, PlayerController::InputMode::Player2);
 
-    auto &plat = TheMap.addEntity<Platform>(TheMap, app, 20.0f);
-    plat.setPosition({ -2.0f, 20.0f });
-
-    auto &plat2 = TheMap.addEntity<Platform>(TheMap, app, 40.0f);
-    plat2.setPosition({ 3.0f, 30.0f });
+    TheMap.generate();
 }
 
 void PlayState::tick(float seconds)

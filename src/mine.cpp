@@ -7,6 +7,7 @@
 #include "map.hpp"
 #include "platform.hpp"
 #include "explosion.hpp"
+#include "soundmanager.hpp"
 
 static constexpr float MineSize = 1.5f;
 static constexpr float SensorsSize = 0.2f;
@@ -117,6 +118,8 @@ void Mine::tick(float seconds)
 
         auto &ex = MyMap->addEntity<Explosion>(*MyMap, *MyApp);
         ex.setPosition(getPosition());
+
+        MyApp->sound().playSound("boom");
 
         CurrentState = State::None;
 
