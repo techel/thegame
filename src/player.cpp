@@ -1,5 +1,7 @@
 #include "player.hpp"
 
+#include <functional>
+
 #include "texmanager.hpp"
 
 Player::Player(Map &map, App &app)

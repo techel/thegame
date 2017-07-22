@@ -1,6 +1,7 @@
 #pragma once
 
 #include <sfml/Graphics.hpp>
+#include <functional>
 
 #include "entity.hpp"
 #include "app.hpp"

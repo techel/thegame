@@ -1,5 +1,6 @@
-#pragma once
+//#pragma once
 
+#include <functional>
 #include <memory>
 
 //
@@ -65,7 +66,7 @@ private:
 
         void dispatch() override
         {
-            std::invoke(Func);
+            Func();
         }
     };
 
