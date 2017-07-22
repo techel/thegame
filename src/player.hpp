@@ -1,11 +1,8 @@
 #pragma once
 
-<<<<<<< HEAD
 #include <sfml/Graphics.hpp>
 #include <functional>
-=======
 #include <sfml/Graphics/RectangleShape.hpp>
->>>>>>> 827adf7d3f0db6669cd55dc763f787dfc53acaa7
 
 #include "entity.hpp"
 #include "physbox.hpp"
@@ -35,10 +32,7 @@ public:
 
 private:
 	sf::RectangleShape Sprite;
-<<<<<<< HEAD
     
-};
-=======
     std::unique_ptr<Box> Body;
 
     Face FaceDirection = Face::Right;
@@ -47,4 +41,3 @@ private:
     float DestWalkVelocity = 0.0f;
     float WalkAnimation = 0.0f;
 };
->>>>>>> 827adf7d3f0db6669cd55dc763f787dfc53acaa7
