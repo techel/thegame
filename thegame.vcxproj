@@ -122,12 +122,15 @@
   <ItemGroup>
     <ClCompile Include="src\app.cpp" />
     <ClCompile Include="src\camera.cpp" />
+    <ClCompile Include="src\entity.cpp" />
     <ClCompile Include="src\gamewindow.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\map.cpp" />
     <ClCompile Include="src\physbox.cpp" />
     <ClCompile Include="src\physics.cpp" />
+    <ClCompile Include="src\platform.cpp" />
     <ClCompile Include="src\player.cpp" />
+    <ClCompile Include="src\playercontroller.cpp" />
     <ClCompile Include="src\playstate.cpp" />
     <ClCompile Include="src\soundmanager.cpp" />
     <ClCompile Include="src\states.cpp" />
@@ -142,7 +145,9 @@
     <ClInclude Include="src\nonmovable.hpp" />
     <ClInclude Include="src\physbox.hpp" />
     <ClInclude Include="src\physics.hpp" />
+    <ClInclude Include="src\platform.hpp" />
     <ClInclude Include="src\player.hpp" />
+    <ClInclude Include="src\playercontroller.hpp" />
     <ClInclude Include="src\playstate.hpp" />
     <ClInclude Include="src\soundmanager.hpp" />
     <ClInclude Include="src\states.hpp" />

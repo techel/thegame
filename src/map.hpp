@@ -4,15 +4,18 @@
 #include <vector>
 #include <utility>
 
+#include "nonmovable.hpp"
+#include "app.hpp"
 #include "taskqueue.hpp"
 #include "entity.hpp"
 #include "camera.hpp"
-#include "nonmovable.hpp"
+#include "physics.hpp"
+#include "playercontroller.hpp"
 
 class Map : nonMovable, nonCopyable
 {
 public:
-	Map();
+	Map(App &app);
 
 	IEntity &addEntity(std::unique_ptr<IEntity> entity);
 
@@ -26,13 +29,23 @@ public:
 	void removeEntity(IEntity &e); //remove is delegated to the 'tick' method
 
 	Camera &camera() { return TheCamera; }
+	Physics &physics() { return ThePhysics; }
 
-	void tick(float seconds);
+    PlayerController &player1() { return Player1Controller; }
+    PlayerController &player2() { return Player2Controller; }
+	
+    void tick(float seconds);
 	void render(sf::RenderTarget &target) const;
 
 private:
-	std::vector<std::unique_ptr<IEntity>> Entities;
 	TaskQueue Deferred;
-
 	Camera TheCamera;
+<<<<<<< HEAD
 };
+=======
+    Physics ThePhysics;
+	std::vector<std::unique_ptr<IEntity>> Entities;
+
+    PlayerController Player1Controller, Player2Controller;
+};
+>>>>>>> 827adf7d3f0db6669cd55dc763f787dfc53acaa7

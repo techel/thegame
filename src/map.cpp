@@ -6,9 +6,10 @@
 
 #include "viewguard.hpp"
 
-Map::Map()
+Map::Map(App &app) : Player1Controller(app.window()), Player2Controller(app.window())
 {
 	TheCamera.setResolution({ 100.0f, 100.0f * 9.0f / 16.0f });
+    TheCamera.setVelocity(5.0f);
 }
 
 IEntity &Map::addEntity(std::unique_ptr<IEntity> entity)
@@ -38,12 +39,13 @@ void Map::removeEntity(IEntity &e)
 
 void Map::tick(float seconds)
 {
-	for(auto &e : Entities)
-		e->tick(seconds);
+    for(auto &e : Entities)
+        e->tick(seconds);
 
 	Deferred.dispatchAll();
 
 	TheCamera.tick(seconds);
+    ThePhysics.tick(seconds);
 }
 
 void Map::render(sf::RenderTarget &target) const

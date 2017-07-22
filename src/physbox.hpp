@@ -13,7 +13,7 @@
 class Box : private ICollisionListener
 {
 public:
-    enum class Direction : size_t { Left = 0, Right, Top, Bottom };
+    enum class Direction : size_t { Left = 0, Right, Bottom, Top };
     enum class Collision { Touch, Untouch };
     using Listener = std::function<void(Box&, IEntity&, Direction, Collision)>;
 
@@ -23,7 +23,6 @@ public:
         b2FixtureDef MainFix, LeftSensor, RightSensor, TopSensor, BottomSensor;
     };
 
-public:
     Box(Physics &ph, const sf::Vector2f &size, float sensorsize, const Predefinitions &pre);
 
     b2Body &body() { return *MyBody; }
@@ -33,12 +32,12 @@ public:
 
     void observeCollision(Listener l);
 
-	private:
+private:
     BodyHolder MyBody;
     std::array<b2Fixture*, 4> SensorFixtures;
     size_t fixToIndex(const b2Fixture *f);
 
-    Physics::CollisionTicket CollTicket;
+    Ticket CollTicket;
     Listener CollListener;
 
     std::array<int, 4> NumTouches;

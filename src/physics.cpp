@@ -4,7 +4,7 @@
 #include <iterator>
 
 
-Physics::Physics() : TheWorld({0.0f, -35.0f})
+Physics::Physics() : TheWorld({0.0f, 222.0f})
 {
     TheWorld.SetContactListener(this);
 }
@@ -43,6 +43,6 @@ auto Physics::observeCollisions(ICollisionListener &l) -> CollisionTicket
 }
 void Physics::tick(float seconds)
 {
-    TheWorld.Step(seconds, 3, 3);
+    TheWorld.Step(seconds, 5, 5);
 }
 

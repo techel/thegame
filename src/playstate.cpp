@@ -1,18 +1,28 @@
 #include "playstate.hpp"
 
 #include "soundmanager.hpp"
+
 #include "player.hpp"
+#include "platform.hpp"
 
 Ticket t;
 
-PlayState::PlayState(App &app)
+PlayState::PlayState(App &app) : TheMap(app)
 {
 	app.sound().playMusic("test");
 
 	auto &player = TheMap.addEntity<Player>(TheMap, app);
-	player.setPosition({ 0.5f, 0.5f });
+	player.setPosition({ 0.0f, 0.0f });
+
+    TheMap.player1().setPlayer(player, PlayerController::InputMode::Player1);
 
 	t = TheMap.camera().follow(&player);
+
+    auto &plat = TheMap.addEntity<Platform>(TheMap, app, 20.0f);
+    plat.setPosition({ -2.0f, 20.0f });
+
+    auto &plat2 = TheMap.addEntity<Platform>(TheMap, app, 20.0f);
+    plat2.setPosition({ 2.0f, 30.0f });
 }
 
 void PlayState::tick(float seconds)
