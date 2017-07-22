@@ -1,12 +1,7 @@
 #include "player.hpp"
 
-<<<<<<< HEAD
-#include <functional>
-
-=======
 #include "app.hpp"
 #include "map.hpp"
->>>>>>> 827adf7d3f0db6669cd55dc763f787dfc53acaa7
 #include "texmanager.hpp"
 
 static const float PlayerSize = 4.0f;

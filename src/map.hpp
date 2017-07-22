@@ -31,21 +31,16 @@ public:
 	Camera &camera() { return TheCamera; }
 	Physics &physics() { return ThePhysics; }
 
-    PlayerController &player1() { return Player1Controller; }
-    PlayerController &player2() { return Player2Controller; }
+	PlayerController &player1() { return Player1Controller; }
+	PlayerController &player2() { return Player2Controller; }
 	
-    void tick(float seconds);
+	void tick(float seconds);
 	void render(sf::RenderTarget &target) const;
 
 private:
 	TaskQueue Deferred;
 	Camera TheCamera;
-<<<<<<< HEAD
-};
-=======
-    Physics ThePhysics;
+	Physics ThePhysics;
 	std::vector<std::unique_ptr<IEntity>> Entities;
-
-    PlayerController Player1Controller, Player2Controller;
+	PlayerController Player1Controller, Player2Controller;
 };
->>>>>>> 827adf7d3f0db6669cd55dc763f787dfc53acaa7
