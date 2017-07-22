@@ -23,17 +23,15 @@ IEntity &Map::addEntity(std::unique_ptr<IEntity> entity)
 
 void Map::removeEntity(IEntity &e)
 {
-	auto it = std::find_if(Entities.begin(), Entities.end(), [&e](const auto &entityptr)
+	Deferred.enqueue([this, &e]() mutable
 	{
-		return &e == entityptr.get();
-	});
+	    auto it = std::find_if(Entities.begin(), Entities.end(), [&e](const auto &entityptr)
+	    {
+		    return &e == entityptr.get();
+	    });
 
-	assert(it != Entities.end());
-
-	//moves the unique_ptr into a functor which is put into the queue. It is dispatched and destroyed in 'tick'.
-	Deferred.enqueue([ent = std::move(*it)]() mutable
-	{
-		ent.reset();
+	    assert(it != Entities.end());
+        Entities.erase(it);
 	});
 }
 

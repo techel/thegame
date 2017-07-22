@@ -70,6 +70,12 @@
     <ClCompile Include="src\platform.cpp">
       <Filter>src\map\entities</Filter>
     </ClCompile>
+    <ClCompile Include="src\animation.cpp">
+      <Filter>src\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\explosion.cpp">
+      <Filter>src\map\entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\app.hpp">
@@ -127,6 +133,12 @@
       <Filter>src\map</Filter>
     </ClInclude>
     <ClInclude Include="src\platform.hpp">
+      <Filter>src\map\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\animation.hpp">
+      <Filter>src\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\explosion.hpp">
       <Filter>src\map\entities</Filter>
     </ClInclude>
   </ItemGroup>
