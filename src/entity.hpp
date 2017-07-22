@@ -1,6 +1,6 @@
 #pragma once
 
-#include <vector>
+#include <list>
 #include <functional>
 
 #include <sfml/Graphics/RenderTarget.hpp>
@@ -8,6 +8,10 @@
 
 #include "nonmovable.hpp"
 #include "ticket.hpp"
+
+//
+// entity interface
+//
 
 struct IEntity : nonMovable
 {
@@ -19,7 +23,7 @@ struct IEntity : nonMovable
 	virtual void tick(float seconds) = 0;
 	virtual void render(sf::RenderTarget &target) const = 0;
 
-    Ticket observeDestruction(std::function<void()> listener);
+    Ticket observeDestruction(std::function<void()> listener) const;
 
     template<class T>
     T *cast() { return dynamic_cast<T*>(this); }
@@ -28,5 +32,5 @@ struct IEntity : nonMovable
     const T *cast() const { return dynamic_cast<const T*>(this); }
 
 private:
-    std::vector<std::function<void()>> DestructionListener;
+    mutable std::list<std::function<void()>> DestructionListener;
 };

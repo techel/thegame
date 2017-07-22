@@ -128,6 +128,7 @@
     <ClCompile Include="src\gamewindow.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\map.cpp" />
+    <ClCompile Include="src\mine.cpp" />
     <ClCompile Include="src\physbox.cpp" />
     <ClCompile Include="src\physics.cpp" />
     <ClCompile Include="src\platform.cpp" />
@@ -146,6 +147,7 @@
     <ClInclude Include="src\explosion.hpp" />
     <ClInclude Include="src\gamewindow.hpp" />
     <ClInclude Include="src\map.hpp" />
+    <ClInclude Include="src\mine.hpp" />
     <ClInclude Include="src\nonmovable.hpp" />
     <ClInclude Include="src\physbox.hpp" />
     <ClInclude Include="src\physics.hpp" />

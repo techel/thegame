@@ -30,10 +30,12 @@ class Player : public IEntity
 		void tick(float seconds) override;
 		void render(sf::RenderTarget &target) const override;
 
-	private:
-		sf::RectangleShape Sprite;
-		std::unique_ptr<Box> Body;
-		Face FaceDirection = Face::Right;
+private:
+	sf::RectangleShape Sprite;
+    
+    std::unique_ptr<Box> Body;
+
+    Face FaceDirection = Face::Right;
 
 		bool Walking = false;
 		float DestWalkVelocity = 0.0f;

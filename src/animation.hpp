@@ -9,7 +9,7 @@ class Animation
 public:
     Animation() = default;
 
-    void setTexture(const sf::Texture &tex, unsigned int numFrames, float fps);
+    void setTexture(const sf::Texture &tex, unsigned int numFrames, float fps, bool repeat = false);
 
     void play();
 
@@ -25,10 +25,11 @@ private:
     const sf::Texture *Texture = nullptr;
     unsigned int NumFrames;
     float TimePerFrame;
+    bool Repeat;
 
     bool Playing = false;
-    unsigned int currentFrame;
-    float currentFrameTime;
+    unsigned int CurrentFrame;
+    float CurrentFrameTime;
 
     FrameListener Listener;
 };

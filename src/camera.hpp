@@ -1,5 +1,6 @@
 #pragma once
 
+#include <vector>
 #include <sfml/Graphics/View.hpp>
 
 #include "entity.hpp"
@@ -11,9 +12,7 @@ class Camera : nonMovable, nonCopyable
 public:
 	Camera() = default;
 
-	//The returned ticket removes the target when destroyed.
-	//argument may be nullptr to disable.
-	Ticket follow(const IEntity *entity);
+	void follow(std::vector<const IEntity*> entities);
 
 	//set velocity the camera is moving towards the target
 	void setVelocity(float velocity);
@@ -26,7 +25,7 @@ public:
 
 private:
 	float Velocity = 1.0f;
-	const IEntity *Target = nullptr;
+    std::vector<const IEntity*> Targets;
 	
 	sf::View View;
 };

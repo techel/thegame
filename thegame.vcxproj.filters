@@ -76,6 +76,9 @@
     <ClCompile Include="src\explosion.cpp">
       <Filter>src\map\entities</Filter>
     </ClCompile>
+    <ClCompile Include="src\mine.cpp">
+      <Filter>src\map\entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\app.hpp">
@@ -139,6 +142,9 @@
       <Filter>src\utilities</Filter>
     </ClInclude>
     <ClInclude Include="src\explosion.hpp">
+      <Filter>src\map\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mine.hpp">
       <Filter>src\map\entities</Filter>
     </ClInclude>
   </ItemGroup>
