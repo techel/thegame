@@ -4,7 +4,7 @@
 #include "texmanager.hpp"
 #include "map.hpp"
 
-static constexpr float ExplosionSize = 7.0f;
+static constexpr float ExplosionSize = 15.0f;
 
 Explosion::Explosion(Map &map, App &app)
 {

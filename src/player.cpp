@@ -5,8 +5,9 @@
 #include "app.hpp"
 #include "map.hpp"
 #include "texmanager.hpp"
+#include "mine.hpp"
 
-static const float PlayerSize = 4.0f;
+static const float PlayerSize = 3.5f;
 static const float SensorsSize = 0.7f;
 static constexpr float JumpVelocity0 = -70.5;
 static constexpr float MaxWalkVelocity = 37.0f;
@@ -14,14 +15,14 @@ static constexpr float AccelGround = 100.0f;
 static constexpr float AccelAir = 26.0f;
 static constexpr float Pi = 3.141592f;
 
-Player::Player(Map &map, App &app)
+Player::Player(Map &map, App &app) : MyMap(&map), MyApp(&app)
 {
 	Sprite.setTexture(&app.textures().get("player"));
     Sprite.setSize({ PlayerSize, PlayerSize });
 
     Box::Predefinitions def;
-    //def.MainFix.filter.categoryBits = Filter::Player;
-    //def.MainFix.filter.maskBits = ~Filter::Player;
+    def.MainFix.filter.categoryBits = Filter::Player;
+    def.MainFix.filter.maskBits = Filter::All;
     def.MainFix.friction = 1.0f;
     def.MainFix.density = 1.0f;
     def.LeftSensor = def.RightSensor = def.TopSensor = def.BottomSensor = def.MainFix;
@@ -115,4 +116,11 @@ void Player::jump()
 
 void Player::action()
 {
+    auto &mine = MyMap->addEntity<Mine>(*MyMap, *MyApp);
+    mine.setPosition(getPosition() + sf::Vector2f( PlayerSize / 2, 0.0f ));
+
+    if(FaceDirection == Face::Left)
+        mine.toss({ -1.0f, -1.0f });
+    else
+        mine.toss({ 1.0f, -1.0f });
 }

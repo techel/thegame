@@ -31,6 +31,9 @@ public:
 	void render(sf::RenderTarget &target) const override;
 
 private:
+    App *MyApp;
+    Map *MyMap;
+
 	sf::RectangleShape Sprite;
     
     std::unique_ptr<Box> Body;

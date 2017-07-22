@@ -3,10 +3,11 @@
 #include "texmanager.hpp"
 #include "app.hpp"
 #include "map.hpp"
+#include "explosion.hpp"
 
 static constexpr float PlatformHeight = 2.0f;
 
-Platform::Platform(Map &map, App &app, float width)
+Platform::Platform(Map &map, App &app, float width) : MyMap(&map), MyApp(&app)
 {
     Sprite.setTexture(&app.textures().get("platform"));
     Sprite.setSize({ width, PlatformHeight });
@@ -23,8 +24,8 @@ Platform::Platform(Map &map, App &app, float width)
     shape.SetAsBox(hsize.x, hsize.y, hsize, 0.0f);
 
     b2FixtureDef fixdef;
-    //fixdef.filter.categoryBits = Filter::Wall;
-    //fixdef.filter.maskBits = Filter::All;
+    fixdef.filter.categoryBits = Filter::Wall;
+    fixdef.filter.maskBits = Filter::All;
     fixdef.friction = 1.0f;
     fixdef.shape = &shape;
 
@@ -40,6 +41,11 @@ sf::Vector2f Platform::getPosition() const
 void Platform::setPosition(const sf::Vector2f & pos)
 {
     Body->SetTransform({ pos.x, pos.y }, 0.0f);
+}
+
+void Platform::explode()
+{
+    MyMap->removeEntity(*this);
 }
 
 void Platform::tick(float seconds)

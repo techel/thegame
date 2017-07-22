@@ -3,18 +3,19 @@
 #include <cassert>
 #include <utility>
 
-void Animation::setTexture(const sf::Texture &tex, unsigned int numFrames, float fps)
+void Animation::setTexture(const sf::Texture &tex, unsigned int numFrames, float fps, bool repeat)
 {
     Texture = &tex;
     NumFrames = numFrames;
     TimePerFrame = 1.0f / fps;
+    Repeat = repeat;
 }
 
 void Animation::play()
 {
     assert(Texture);
-    currentFrame = 0;
-    currentFrameTime = 0.0f;
+    CurrentFrame = 0;
+    CurrentFrameTime = 0.0f;
     Playing = true;
 
     if(Listener)
@@ -25,17 +26,20 @@ void Animation::tick(float seconds)
 {
     if(Playing)
     {
-        currentFrameTime += seconds;
-        if(currentFrameTime >= TimePerFrame)
+        CurrentFrameTime += seconds;
+        if(CurrentFrameTime >= TimePerFrame)
         {
-            currentFrameTime = 0.0f;
-            currentFrame++;
+            CurrentFrameTime = 0.0f;
+            CurrentFrame++;
 
-            if(currentFrame >= NumFrames)
+            if(CurrentFrame >= NumFrames)
                 Playing = false;
 
             if(Listener)
                 Listener(Playing);
+
+            if(!Playing && Repeat)
+                play();
         }
     }
 }
@@ -51,5 +55,5 @@ sf::IntRect Animation::getTextureRect()
     const sf::Vector2u texsize = Texture->getSize();
     const unsigned int framewidth = texsize.x / NumFrames;
 
-    return sf::IntRect({ static_cast<int>(framewidth * currentFrame), 0 }, { static_cast<int>(framewidth), static_cast<int>(texsize.y) });
+    return sf::IntRect({ static_cast<int>(framewidth * CurrentFrame), 0 }, { static_cast<int>(framewidth), static_cast<int>(texsize.y) });
 }

@@ -1,14 +1,18 @@
 #include "camera.hpp"
 
-Ticket Camera::follow(const IEntity *entity)
-{
-	Target = entity;
+#include <algorithm>
 
-	return Ticket([this, entity]()
-	{
-		if(Target == entity)
-			Target = nullptr;
-	});
+void Camera::follow(std::vector<const IEntity*> entities)
+{
+	for(const auto &e : entities)
+    {
+        e->observeDestruction([this]()
+        {
+            Targets.clear();
+        });
+    }
+
+    Targets = std::move(entities);
 }
 
 void Camera::setVelocity(float velocity)
@@ -24,9 +28,15 @@ void Camera::setResolution(const sf::Vector2f &resolution)
 
 void Camera::tick(float seconds)
 {
-	if(Target)
+	if(!Targets.empty())
 	{
+        sf::Vector2f sum; //compute average position
+        for(const auto &e : Targets)
+            sum += e->getPosition();
+
+        auto target = sum / static_cast<float>(Targets.size());
+
 		auto viewpos = View.getCenter();
-		View.setCenter(viewpos + (Target->getPosition() - viewpos) * Velocity * seconds);
+		View.setCenter(viewpos + (target - viewpos) * Velocity * seconds);
 	}
 }

@@ -17,21 +17,26 @@ IEntity &Map::addEntity(std::unique_ptr<IEntity> entity)
 	assert(entity);
 
 	auto &ref = *entity.get();
-	Entities.push_back(std::move(entity));
+
+    Deferred.enqueue([this, entity = std::move(entity)]() mutable
+    {
+        Entities.push_back(std::move(entity));
+    });
+
 	return ref;
 }
 
 void Map::removeEntity(IEntity &e)
 {
-	Deferred.enqueue([this, &e]() mutable
+	Deferred.enqueue([this, e = &e]() mutable
 	{
 	    auto it = std::find_if(Entities.begin(), Entities.end(), [&e](const auto &entityptr)
 	    {
-		    return &e == entityptr.get();
+		    return e == entityptr.get();
 	    });
 
-	    assert(it != Entities.end());
-        Entities.erase(it);
+        if(it != Entities.end())
+            Entities.erase(it);
 	});
 }
 
