@@ -83,7 +83,7 @@
       <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);SFML_STATIC</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>box2d\x86.msvc140.d.d.lib;sfml\window.x86.msvc140.d.d.lib;sfml\main.x86.msvc140.d.d.lib;sfml\system.x86.msvc140.d.d.lib;sfml\graphics.x86.msvc140.d.d.lib;sfml\audio.x86.msvc140.d.d.lib;flac\x86.lib;freetype\x86.lib;libogg\x86.lib;libjpeg\x86.lib;opengl32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>box2d\x86.msvc140.d.d.lib;sfml\window.x86.msvc140.d.d.lib;sfml\main.x86.msvc140.d.d.lib;sfml\system.x86.msvc140.d.d.lib;sfml\graphics.x86.msvc140.d.d.lib;sfml\audio.x86.msvc140.d.d.lib;flac\x86.lib;freetype\x86.lib;libogg\x86.lib;libjpeg\x86.lib;openal\x86.lib;opengl32.lib;vorbis\vorbis.x86.lib;vorbis\vorbisenc.x86.lib;vorbis\vorbisfile.x86.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -120,7 +120,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\app.cpp" />
+    <ClCompile Include="src\camera.cpp" />
+    <ClCompile Include="src\gamewindow.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\map.cpp" />
+    <ClCompile Include="src\physbox.cpp" />
+    <ClCompile Include="src\physics.cpp" />
+    <ClCompile Include="src\player.cpp" />
+    <ClCompile Include="src\playstate.cpp" />
+    <ClCompile Include="src\soundmanager.cpp" />
+    <ClCompile Include="src\states.cpp" />
+    <ClCompile Include="src\texmanager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\app.hpp" />
+    <ClInclude Include="src\camera.hpp" />
+    <ClInclude Include="src\entity.hpp" />
+    <ClInclude Include="src\gamewindow.hpp" />
+    <ClInclude Include="src\map.hpp" />
+    <ClInclude Include="src\nonmovable.hpp" />
+    <ClInclude Include="src\physbox.hpp" />
+    <ClInclude Include="src\physics.hpp" />
+    <ClInclude Include="src\player.hpp" />
+    <ClInclude Include="src\playstate.hpp" />
+    <ClInclude Include="src\soundmanager.hpp" />
+    <ClInclude Include="src\states.hpp" />
+    <ClInclude Include="src\taskqueue.hpp" />
+    <ClInclude Include="src\texmanager.hpp" />
+    <ClInclude Include="src\ticker.hpp" />
+    <ClInclude Include="src\ticket.hpp" />
+    <ClInclude Include="src\viewguard.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,10 +5,114 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="src\resources">
+      <UniqueIdentifier>{219b48a1-7144-4816-a96a-0a7d8976fd20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utilities">
+      <UniqueIdentifier>{bdc4ad51-71c0-4249-b8ad-d58be21e34b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\states">
+      <UniqueIdentifier>{a16a2ec0-f6b5-44f5-baae-10540f45a5cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\map">
+      <UniqueIdentifier>{d24f703b-2243-469a-b941-e8f963cf2621}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\map\entities">
+      <UniqueIdentifier>{24557652-48a5-4cba-b463-22ce986861fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\map\physics">
+      <UniqueIdentifier>{5e73fa81-ea55-4775-8a18-dbdf8ddcf001}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\app.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\states.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\soundmanager.cpp">
+      <Filter>src\resources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\texmanager.cpp">
+      <Filter>src\resources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gamewindow.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\playstate.cpp">
+      <Filter>src\states</Filter>
+    </ClCompile>
+    <ClCompile Include="src\map.cpp">
+      <Filter>src\map</Filter>
+    </ClCompile>
+    <ClCompile Include="src\player.cpp">
+      <Filter>src\map\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\camera.cpp">
+      <Filter>src\map</Filter>
+    </ClCompile>
+    <ClCompile Include="src\physics.cpp">
+      <Filter>src\map\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\physbox.cpp">
+      <Filter>src\map\physics</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\app.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\states.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\soundmanager.hpp">
+      <Filter>src\resources</Filter>
+    </ClInclude>
+    <ClInclude Include="src\texmanager.hpp">
+      <Filter>src\resources</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ticker.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gamewindow.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ticket.hpp">
+      <Filter>src\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\nonmovable.hpp">
+      <Filter>src\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\playstate.hpp">
+      <Filter>src\states</Filter>
+    </ClInclude>
+    <ClInclude Include="src\player.hpp">
+      <Filter>src\map\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\map.hpp">
+      <Filter>src\map</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity.hpp">
+      <Filter>src\map</Filter>
+    </ClInclude>
+    <ClInclude Include="src\taskqueue.hpp">
+      <Filter>src\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\camera.hpp">
+      <Filter>src\map</Filter>
+    </ClInclude>
+    <ClInclude Include="src\viewguard.hpp">
+      <Filter>src\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="src\physics.hpp">
+      <Filter>src\map\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\physbox.hpp">
+      <Filter>src\map\physics</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
