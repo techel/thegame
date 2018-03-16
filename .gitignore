@@ -245,3 +245,8 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+# Binary file folder
+bin/*
+
+
