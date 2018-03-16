@@ -1,4 +1,0 @@
-g++: internal compiler error: Speicherzugriffsfehler (program cc1plus)
-Please submit a full bug report,
-with preprocessed source if appropriate.
-See <file:///usr/share/doc/gcc-6/README.Bugs> for instructions.
