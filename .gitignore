@@ -249,4 +249,5 @@ ModelManifest.xml
 # Binary file folder
 bin/*
 
-
+# Binary Librarys
+lib/bin/*
