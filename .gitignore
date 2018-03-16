@@ -247,7 +247,7 @@ ModelManifest.xml
 .fake/
 
 # Binary file folder
-bin/*
+bin/debug/proc
 
 # Binary Librarys
-lib/bin/*
+lib/*

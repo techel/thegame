@@ -1,4 +1,4 @@
 #!/bin/sh
 
-cd ../bin/
+cd ./bin/debug/
 ./proc
